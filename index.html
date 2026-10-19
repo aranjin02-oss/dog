@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+    <div id="header"></div>
+     <div id="hero"></div>
+    <div id="footer"></div>
+   
+
+
+
+    <script>
+
+        function loadComponent(id, path) {
+            fetch(path)
+                .then((res) => res.text())
+                .then((text) => {
+                    const doc = new DOMParser().parseFromString(text, "text/html");
+                    document.getElementById(id).innerHTML = doc.body.innerHTML;
+
+                });
+        }
+        loadComponent("header", "/components/headerrr/header.html")
+        loadComponent("hero", "/components/heroo/hero.html")
+        loadComponent("footer", "/components/footer/footer.html")
+
+    </script>
+    <script src="components/headerrr/header.js"></script>
+    <script src="components/heroo/hero.js"></script>
+    <script src="components/footer/footer.js"></script>
+
+
+
+
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
